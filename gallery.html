@@ -30,15 +30,15 @@
 </head>
 <body class="antialiased bg-purple-50">
 
-<header class="bg-white shadow-sm">
-  <nav class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
-    <div class="text-2xl font-extrabold text-gray-800">WoWW Decors.</div>
-    <div class="hidden md:flex gap-8 text-gray-700 font-medium">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="gallery.html" class="text-purple-600 border-b-2 border-purple-600">Gallery</a>
-      <a href="contact.html">Contact</a>
-    </div>
+<header>
+  <nav class="sticky top-0 z-50 flex flex-row justify-between px-16 py-8 bg-purple-50/90 backdrop-blur-md shadow-md">
+      <span class="text-2xl font-bold text-purple-900">WoWW Decors.</span>
+      <span class="flex flex-row gap-8 text-lg font-bold text-gray-700">
+          <a href="index.html" class="hover:text-purple-700 transition-colors duration-300">Home</a>
+          <a href="#about" class="hover:text-purple-700 transition-colors duration-300">About Us</a>
+          <a href="gallery.html" class="text-purple-700 transition-colors duration-300">Gallery</a>
+          <a href="contact.html" class="hover:text-purple-700 transition-colors duration-300">Contact Us</a>
+      </span>
   </nav>
 </header>
 
@@ -58,15 +58,53 @@
   </div>
 </main>
 
-<footer class="bg-gray-800 text-white mt-12">
-  <div class="max-w-6xl mx-auto px-6 py-10 grid md:grid-cols-4 gap-6">
-    <div><h3 class="font-bold text-lg">WoWW Decors.</h3><p class="mt-2 text-sm text-gray-200">Crafting extraordinary celebrations.</p></div>
-    <div><h4 class="font-semibold">Explore</h4><ul class="mt-2 text-sm text-gray-200 space-y-1"><li>Home</li><li>About</li><li>Services</li><li>Gallery</li></ul></div>
-    <div><h4 class="font-semibold">Visit Us</h4><p class="mt-2 text-sm text-gray-200">1234 Main St, City</p></div>
-    <div><h4 class="font-semibold">Stay Inspired</h4><div class="mt-3"><input type="email" placeholder="newsletter@add.com" class="w-full px-3 py-2 rounded bg-gray-700 text-white placeholder-gray-300"/><button class="mt-3 px-4 py-2 bg-purple-600 rounded text-white font-semibold">Subscribe</button></div></div>
-  </div>
-  <div class="text-center text-sm bg-gray-900 py-3">© 2025 WoWW Decors. All Rights Reserved.</div>
-</footer>
+    <footer id="contact" class="relative bottom-0 bg-gray-800 text-white px-16 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 w-full">
+
+            <div class="p-4">
+                <h2 class="text-2xl font-bold mb-4">WoWW Decors.</h2>
+                <p class="text-gray-300 leading-relaxed">
+                    Crafting Extraordinary Celebrations. From heartfelt moments to breathtaking celebrations, we bring your visions to life.
+                </p> 
+            </div>
+
+            <div class="p-4"> 
+                <h2 class="text-xl font-bold mb-4">Explore</h2>
+                <ul class="space-y-2 text-gray-300">
+                    <li><a href="#home" class="hover:text-purple-300 transition-colors duration-300">Home</a></li>
+                    <li><a href="#about" class="hover:text-purple-300 transition-colors duration-300">About Us</a></li>
+                    <li><a href="gallery.html" class="hover:text-purple-300 transition-colors duration-300">Gallery</a></li>
+                    <li><a href="#contact" class="hover:text-purple-300 transition-colors duration-300">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="p-4"> 
+                <h2 class="text-xl font-bold mb-4">Get in Touch</h2>
+                <p class="text-gray-300 leading-relaxed">
+                    456 Park Avenue, New York, NY
+                    <br>
+                    (By Appointment Only)
+                </p>
+                <h2 class="text-xl font-bold mt-6 mb-2">Talk To Us</h2>
+                <p class="text-gray-300">P: +1 (212) 555-0123</p>
+                <p class="text-gray-300">E: inquiries@wowwdecors.com</p>
+            </div>
+            
+            <div class="p-4"> 
+                <h2 class="text-xl font-bold mb-4">Follow Our Journey</h2> 
+                <div class="flex flex-row gap-5"> <a href="#" class="text-gray-300 hover:text-purple-300 transition-colors duration-300">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.148 3.229-1.667 4.77-4.919 4.919-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-3.251-.149-4.771-1.69-4.919-4.919-.058-1.265-.07-1.646-.07-4.85s.012-3.584.07-4.85C2.31 3.856 3.83 2.31 7.081 2.163 8.346 2.105 8.72 2.093 12 2.093m0-2.093c-3.259 0-3.667.014-4.947.072-4.305.197-7.302 3.193-7.5 7.5-.058 1.28-.072 1.688-.072 4.947s.014 3.668.072 4.947c.197 4.305 3.193 7.302 7.5 7.5 1.28.058 1.688.072 4.947.072s3.668-.014 4.947-.072c4.305-.197 7.302-3.193 7.5-7.5.058-1.28.072 1.688.072-4.947s-.014-3.668-.072-4.947c-.197-4.305-3.193-7.302-7.5-7.5-1.28-.058-1.688-.072-4.947-.072zM12 6.848c-2.828 0-5.131 2.303-5.131 5.131s2.303 5.131 5.131 5.131 5.131-2.303 5.131-5.131-2.303-5.131-5.131-5.131zm0 8.17c-1.68 0-3.04-1.36-3.04-3.04s1.36-3.04 3.04-3.04 3.04 1.36 3.04 3.04-1.36 3.04-3.04 3.04zm4.41-8.21a1.21 1.21 0 1 1-2.42 0 1.21 1.21 0 0 1 2.42 0z"></path></svg>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-purple-300 transition-colors duration-300">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.017 0C5.388 0 0 5.388 0 12.017c0 5.072 3.072 9.387 7.417 11.139-.105-.933-.218-2.36-.028-3.327.182-.922 1.168-4.962 1.168-4.962s-.299-.6-.299-1.489c0-1.392.812-2.43 1.822-2.43.864 0 1.282.648 1.282 1.417 0 .864-.548 2.148-.822 3.328-.23.982.49 1.792 1.458 1.792 1.742 0 3.088-2.218 3.088-5.418 0-2.838-2.088-4.868-4.99-4.868-3.41 0-5.38 2.558-5.38 5.182 0 1.028.388 2.138.852 2.732.098.128.112.23.082.342-.082.342-.268 1.118-.328 1.328-.072.23-.288.312-.528.192-1.488-.768-2.418-2.928-2.418-4.738 0-3.818 2.782-7.288 7.818-7.288 4.11 0 7.318 2.91 7.318 6.9 0 4.13-2.61 7.44-6.21 7.44-1.238 0-2.418-.648-2.81-1.388l-.768 2.928c-.288 1.118-.982 2.448-1.458 3.218.864.288 1.768.438 2.698.438 6.628 0 12.017-5.388 12.017-12.017C24.033 5.388 18.645 0 12.017 0z"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="w-full text-center mt-12 pt-8 border-t border-gray-600 text-gray-400">
+            © 2025 WoWW Decors. All Rights Reserved. | Site Design by The ShoreKeeper
+        </div>
+    </footer>
 
 <script>
   // simplified data + renderer + improved span logic to avoid leftover bottom space
@@ -90,7 +128,7 @@
         <img src="${item.src}" alt="${item.caption}" loading="lazy"/>
         <div class="image-overlay"><span class="text-white font-semibold">${item.caption}</span></div>
       </div>
-    `);
+    `); 
   }
 
   // compute row span based on natural aspect ratio and card width,
