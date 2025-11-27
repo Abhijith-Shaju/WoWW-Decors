@@ -11,32 +11,54 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
 
     <style>
-        /* Applying the font and a subtle text-shadow for the hero */
         body {
             font-family: 'Inter', sans-serif;
         }
-        /* Keep for consistency, though less relevant on this page's smaller hero */
         .hero-text-shadow {
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
         }
-        /* Optional: for a smoother scroll behavior */
         html {
             scroll-behavior: smooth;
+        }
+        .input-error {
+            border-color: #ef4444 !important; /* Tailwind red-500 */
+            background-color: #fef2f2; /* Tailwind red-50 */
         }
     </style>
 </head>
 <body class="bg-purple-50 text-gray-800">
 
     <div id="home" class="w-full flex flex-col"> 
-        <nav class="sticky top-0 z-50 flex flex-row justify-between px-16 py-8 bg-purple-50/90 backdrop-blur-md shadow-md">
-            <span class="text-2xl font-bold text-purple-900">WoWW Decors.</span>
-            <span class="flex flex-row gap-8 text-lg font-bold text-gray-700">
-                <a href="index.html" class="hover:text-purple-700 transition-colors duration-300">Home</a>
-                <a href="gallery.html" class="hover:text-purple-700 transition-colors duration-300">Gallery</a>
-                <a href="contact.html" class="text-purple-700 transition-colors duration-300">Contact Us</a>
-            </span>
+        <nav class="top-0 z-50 w-full bg-purple-50/90 backdrop-blur-md shadow-md relative">
+            <div class="flex flex-wrap items-center justify-between px-6 py-4 md:px-16 md:py-8">
+                
+                <a href="index.html" class="text-2xl font-bold text-purple-900">
+                    WoWW Decors.
+                </a>
+
+                <button id="menu-btn" class="md:hidden p-2 text-purple-900 rounded-md hover:bg-purple-200 focus:outline-none transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+
+                <div id="menu" class="hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-xl border-t border-purple-100 shadow-2xl md:static md:block md:w-auto md:bg-transparent md:shadow-none md:border-none">
+                    <div class="flex flex-col md:flex-row md:gap-8 text-lg font-bold text-gray-700 p-6 md:p-0">
+                        <a href="index.html" class="block py-3 border-b border-gray-100 hover:text-purple-700 hover:pl-2 rounded transition-all duration-300 md:hover:bg-transparent md:hover:pl-0 md:border-none md:p-0">
+                            Home
+                        </a>
+                        <a href="gallery.html" class="block py-3 border-b border-gray-100 hover:text-purple-700 hover:pl-2 rounded transition-all duration-300 md:hover:bg-transparent md:hover:pl-0 md:border-none md:p-0">
+                            Gallery
+                        </a>
+                        <a href="contact.html" class="block py-3 hover:text-purple-700 hover:pl-2 rounded transition-all duration-300 md:hover:bg-transparent md:hover:pl-0 md:border-none md:p-0">
+                            Contact Us
+                        </a>
+                    </div>
+                </div>
+
+            </div>
         </nav>
-        
+
         <div id="contact-hero" class="w-full h-80 bg-[url('resources/images/hainn.png')] bg-no-repeat bg-cover bg-center">
             <div class="h-full w-full bg-gray-950/50 text-white flex flex-col justify-center p-8 md:p-16">
                 <h1 class="text-5xl md:text-6xl font-extrabold m-2 hero-text-shadow">
@@ -54,34 +76,57 @@
         <div class="flex flex-col lg:flex-row gap-12">
             
             <div class="w-full lg:w-3/5">
-                <h2 class="text-2xl font-bold mb-6">Let us help to Woww your event!!</h2>
-                <form action="https://formsubmit.co/wowwdecorsandevents@gmail.com" method="POST" class="space-y-4">
+                <h2 class="text-4xl font-bold text-[#c060d9] mb-6">Let us help to Woww your event!!</h2>
+                
+                <form id="contactForm" action="https://formsubmit.co/wowwdecorsandevents@gmail.com" method="POST" class="space-y-4" novalidate>
                     <input type="hidden" name="_captcha" value="false">
+                    
                     <div class="flex flex-col md:flex-row gap-4">
-                        <input type="text" placeholder="Full Name" required 
+                        <div class="w-full">
+                            <input type="text" id="name" name="name" placeholder="Full Name" required 
                                 class="w-full p-3 border border-[#ac56c3] rounded-md focus:outline-none focus:ring-2 focus:ring-[#c060d9]"/>
+                            <p id="err-name" class="hidden text-red-500 text-sm mt-1">Please enter your full name.</p>
+                        </div>
 
-                        <input type="email" placeholder="Email Address" name="email" required 
+                        <div class="w-full">
+                            <input type="email" id="email" name="email" placeholder="Email Address" required 
                                 class="w-full p-3 border border-[#ac56c3] rounded-md focus:outline-none focus:ring-2 focus:ring-[#c060d9]" />
+                            <p id="err-email" class="hidden text-red-500 text-sm mt-1">Please enter a valid email address.</p>
+                        </div>
                     </div>
 
                     <div class="flex flex-col md:flex-row gap-4">
-                        <input type="text" placeholder="Phone Number" name="phone"
+                        <div class="w-full">
+                            <input type="number" id="phone" name="phone" placeholder="Phone Number"
                                 class="w-full p-3 border border-[#ac56c3] rounded-md focus:outline-none focus:ring-2 focus:ring-[#c060d9]" />
-                        <input type="text" placeholder="Event Type (e.g., Wedding, Corporate Gala)" name="event_type" required 
+                            <p id="err-phone" class="hidden text-red-500 text-sm mt-1">Please enter a valid phone number (at least 7 digits).</p>
+                        </div>
+                        
+                        <div class="w-full">
+                            <input type="text" id="event_type" name="event_type" placeholder="Event Type (e.g., Wedding, Corporate Gala)" required 
                                 class="w-full p-3 border border-[#ac56c3] rounded-md focus:outline-none focus:ring-2 focus:ring-[#c060d9]" />
+                            <p id="err-type" class="hidden text-red-500 text-sm mt-1">Please specify the event type.</p>
+                        </div>
                     </div>
 
-                    <input type="text" placeholder="Guests Estimate (e.g., 100 - 150)" name="guests"
+                    <div class="w-full">
+                        <input type="text" id="guests" name="guests" placeholder="Guests Estimate (e.g., 100 - 150)"
                             class="w-full p-3 border border-[#ac56c3] rounded-md focus:outline-none focus:ring-2 focus:ring-[#c060d9]"/>
+                    </div>
                                     
-                    <input type="text" placeholder="Event Date (Optional)" name="event_date"
+                    <div class="w-full">
+                        <input type="date" id="event_date" name="event_date" required
                             class="w-full p-3 border border-[#ac56c3] rounded-md focus:outline-none focus:ring-2 focus:ring-[#c060d9]"/>
+                        <p id="err-date" class="hidden text-red-500 text-sm mt-1">Please select a date in the future.</p>
+                    </div>
                                     
-                    <textarea placeholder="Message / Details" name="message" rows="5" required
-                                class="w-full p-3 border border-[#ac56c3] rounded-md focus:outline-none focus:ring-2 focus:ring-[#c060d9]"></textarea>
+                    <div class="w-full">
+                        <textarea id="message" name="message" placeholder="Message / Details" rows="5" required
+                            class="w-full p-3 border border-[#ac56c3] rounded-md focus:outline-none focus:ring-2 focus:ring-[#c060d9]"></textarea>
+                        <p id="err-message" class="hidden text-red-500 text-sm mt-1">Please tell us a bit about your event.</p>
+                    </div>
 
-                    <button type="submit" class="py-3 px-8 rounded-xl bg-[#c060d9] w-max font-bold text-white hover:bg-purple-700 transition">
+                    <button type="submit" class="py-3 px-8 rounded-xl bg-[#c060d9] w-max font-bold text-white hover:bg-purple-600 transition">
                         Send Message
                     </button>
                 </form>
@@ -91,19 +136,19 @@
                 
                 <div class="space-y-2">
                     <h3 class="text-2xl font-bold text-gray-800 mb-2">Contact Details</h3>
-                    <a href="tel:+13176476669" class="hover:text-purple-400 duration-200 hover:underline text-xl">+1 31764 76669</a>
-                    <a href="mailto:wowwdecorsandevents@gmail.com" class="hover:text-purple-400 duration-200 hover:underline text-xl">wowwdecorsandevents@gmail.com</a>
+                    <a href="tel:+13176476669" class="hover:text-purple-400 duration-200 hover:underline text-xl block">+1 31764 76669</a>
+                    <a href="mailto:wowwdecorsandevents@gmail.com" class="hover:text-purple-400 duration-200 hover:underline text-xl block">wowwdecorsandevents@gmail.com</a>
                 </div>
 
                 <div class="space-y-2">
                     <h3 class="text-2xl font-bold text-gray-800">Connect With Us</h3>
                     <div class="flex space-x-4">
-                        <a href="https://www.facebook.com/share/1AoH7Au6Ym/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="text-purple-300 hover:text-purple-500 transition-colors duration-300">
+                        <a href="https://www.facebook.com/share/1AoH7Au6Ym/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="text-purple-300 hover:text-purple-600 transition-colors duration-300">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                             </svg>
                         </a>
-                        <a href="https://www.instagram.com/wowwdecorsandevents?igsh=MWRldjNqY3BmeWg3ZA==" target="_blank" rel="noopener noreferrer" class="text-purple-300 hover:text-purple-500 transition-colors duration-300">
+                        <a href="https://www.instagram.com/wowwdecorsandevents?igsh=MWRldjNqY3BmeWg3ZA==" target="_blank" rel="noopener noreferrer" class="text-purple-300 hover:text-purple-600 transition-colors duration-300">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.148 3.229-1.667 4.77-4.919 4.919-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-3.251-.149-4.771-1.69-4.919-4.919-.058-1.265-.07-1.646-.07-4.85s.012-3.584.07-4.85C2.31 3.856 3.83 2.31 7.081 2.163 8.346 2.105 8.72 2.093 12 2.093m0-2.093c-3.259 0-3.667.014-4.947.072-4.305.197-7.302 3.193-7.5 7.5-.058 1.28-.072 1.688-.072 4.947s.014 3.668.072 4.947c.197 4.305 3.193 7.302 7.5 7.5 1.28.058 1.688.072 4.947.072s3.668-.014 4.947-.072c4.305-.197 7.302-3.193 7.5-7.5.058-1.28.072 1.688.072-4.947s-.014-3.668-.072-4.947c-.197-4.305-3.193-7.302-7.5-7.5-1.28-.058-1.688-.072-4.947-.072zM12 6.848c-2.828 0-5.131 2.303-5.131 5.131s2.303 5.131 5.131 5.131 5.131-2.303 5.131-5.131-2.303-5.131-5.131-5.131zm0 8.17c-1.68 0-3.04-1.36-3.04-3.04s1.36-3.04 3.04-3.04 3.04 1.36 3.04 3.04-1.36 3.04-3.04 3.04zm4.41-8.21a1.21 1.21 0 1 1-2.42 0 1.21 1.21 0 0 1 2.42 0z"></path>
                             </svg>
@@ -173,6 +218,78 @@
             © 2025 WoWW Decors. All Rights Reserved. | Site Design by The ShoreKeeper
         </div>
     </footer>
+
+    <script>
+        const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // --- VALIDATION LOGIC ADDED BELOW ---
+        const form = document.getElementById('contactForm');
+        
+        form.addEventListener('submit', function(event) {
+            let hasError = false;
+
+            // Helper to show/hide error messages
+            function toggleError(inputId, errId, condition) {
+                const input = document.getElementById(inputId);
+                const err = document.getElementById(errId);
+                
+                if (condition) {
+                    err.classList.remove('hidden');
+                    input.classList.add('input-error');
+                    hasError = true;
+                } else {
+                    err.classList.add('hidden');
+                    input.classList.remove('input-error');
+                }
+            }
+
+            // 1. Name Validation (Required)
+            const nameVal = document.getElementById('name').value.trim();
+            toggleError('name', 'err-name', nameVal === '');
+
+            // 2. Email Validation (Regex)
+            const emailVal = document.getElementById('email').value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            toggleError('email', 'err-email', !emailRegex.test(emailVal));
+
+            // 3. Phone Validation (Optional, but if filled must be numeric and decent length)
+            const phoneVal = document.getElementById('phone').value.trim();
+            // Allow empty, but if not empty, must be > 6 digits
+            const isPhoneInvalid = phoneVal !== '' && phoneVal.length < 7;
+            toggleError('phone', 'err-phone', isPhoneInvalid);
+
+            // 4. Event Type (Required)
+            const typeVal = document.getElementById('event_type').value.trim();
+            toggleError('event_type', 'err-type', typeVal === '');
+
+            // 5. Date Validation (Must be today or future)
+            const dateInput = document.getElementById('event_date');
+            if (dateInput.value) {
+                const selectedDate = new Date(dateInput.value);
+                const today = new Date();
+                today.setHours(0, 0, 0, 0); // Clear time for accurate comparison
+                
+                toggleError('event_date', 'err-date', selectedDate < today);
+            } else {
+                toggleError('event_date', 'err-date', true); // Required
+            }
+
+            // 6. Message (Required)
+            const msgVal = document.getElementById('message').value.trim();
+            toggleError('message', 'err-message', msgVal === '');
+
+            // If there are errors, stop the form from submitting
+            if (hasError) {
+                event.preventDefault();
+            }
+            // If no errors, the form will submit naturally to formsubmit.co
+        });
+    </script>
 
 </body>
 </html>
